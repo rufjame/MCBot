@@ -209,4 +209,38 @@ async def effect(*message: str):
     message = ' '.join(message)
     await send_receive_rcon('/effect ' + message)
 	
+	
+@bot.command()
+@commands.has_any_role(admin)
+async def teleport(*message: str):
+    '''
+    Teleports players
+    '''
+    logging.debug('teleport called')
+    message = ' '.join(message)
+    await send_receive_rcon('/teleport ' + message)
+
+
+@bot.command()
+@commands.has_any_role(admin)
+async def summon(*message: str):
+    '''
+    Summons entities
+    '''
+    logging.debug('summon called')
+    message = ' '.join(message)
+    await send_receive_rcon('/summon ' + message)
+
+
+@bot.command()
+@commands.has_any_role(admin)
+async def xp(*message: str):
+    '''
+    Adds experience to chosen player
+    '''
+    logging.debug('xp called')
+    message = ' '.join(message)
+    await send_receive_rcon('/xp ' + message)
+
+	
 bot.run(config['discord']['bottoken'])
